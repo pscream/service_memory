@@ -1,0 +1,93 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build TenantSwitch Debug",
+      "command": "dotnet",
+      "type": "shell",
+      "args": [
+        "build",
+        "${workspaceFolder}/services/Core/APIs/TenantSwitch/TenantSwitch.csproj",
+        // Ask dotnet build to generate full paths for file names.
+        "/property:GenerateFullPaths=true",
+        // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+        "/consoleloggerparameters:NoSummary",
+        "--configuration",
+        "Debug",
+        "--property:Platform='Any CPU'"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Build TenantSwitch Release",
+      "command": "dotnet",
+      "type": "shell",
+      "args": [
+        "build",
+        "${workspaceFolder}/services/Core/APIs/TenantSwitch/TenantSwitch.csproj",
+        // Ask dotnet build to generate full paths for file names.
+        "/property:GenerateFullPaths=true",
+        // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+        "/consoleloggerparameters:NoSummary",
+        "--configuration",
+        "Release",
+        "--property:Platform='Any CPU'"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Build AppHost Debug",
+      "detail": "Build AppHost Debug (Aspire Core Host)",
+      "command": "dotnet",
+      "type": "shell",
+      "args": [
+        "build",
+        "${workspaceFolder}/services/Core/Hosts/AppHost/AppHost.csproj",
+        // Ask dotnet build to generate full paths for file names.
+        "/property:GenerateFullPaths=true",
+        // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+        "/consoleloggerparameters:NoSummary",
+        "--configuration",
+        "Debug",
+        "--property:Platform='Any CPU'"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Build AppHost Release",
+      "detail": "Build AppHost Release (Aspire Core Host)",
+      "command": "dotnet",
+      "type": "shell",
+      "args": [
+        "build",
+        "${workspaceFolder}/services/Core/Hosts/AppHost/AppHost.csproj",
+        // Ask dotnet build to generate full paths for file names.
+        "/property:GenerateFullPaths=true",
+        // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+        "/consoleloggerparameters:NoSummary",
+        "--configuration",
+        "Release",
+        "--property:Platform='Any CPU'"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+name: Aspire
+variables:
+  - name: TenantSwitch
+    value: "4001"

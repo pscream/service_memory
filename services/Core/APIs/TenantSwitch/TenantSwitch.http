@@ -1,0 +1,6 @@
+@TenantSwitch_HostAddress = http://localhost:5122
+
+GET {{TenantSwitch_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

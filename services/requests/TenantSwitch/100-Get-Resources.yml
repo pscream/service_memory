@@ -1,0 +1,15 @@
+info:
+  name: 100-Get-Resources
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: http://localhost:{{TenantSwitch}}/api/resource
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

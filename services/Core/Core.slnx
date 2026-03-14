@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/Global/">
+    <Project Path="Global/Global.csproj" />    
+  </Folder>
+  <Folder Name="/Hosts/">
+    <Project Path="Hosts/AppHost/AppHost.csproj" />
+    <Project Path="Hosts/ServiceDefaults/ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/APIs/">
+    <Project Path="APIs/TenantSwitch/TenantSwitch.csproj" />    
+  </Folder>
+  <Folder Name="/Migrations/">
+    <Project Path="Migrations/AdminSetup/AdminSetup.csproj" />    
+	  <Project Path="Migrations/TenantSetup/TenantSetup.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,15 @@
+info:
+  name: 100-Options-Resources copy
+  type: http
+  seq: 2
+
+http:
+  method: OPTIONS
+  url: http://localhost:{{TenantSwitch}}/api/resource
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
