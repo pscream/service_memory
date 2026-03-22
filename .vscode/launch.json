@@ -5,9 +5,9 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Aspire: Launch AppHost",
       "type": "aspire",
       "request": "launch",
-      "name": "Aspire: Launch AppHost",
       "program": "${workspaceFolder}/services/Core/Hosts/AppHost/AppHost.csproj"
     },
     {

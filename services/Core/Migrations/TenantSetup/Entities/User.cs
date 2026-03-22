@@ -1,19 +1,19 @@
 namespace Core.Migrations.TenantSetup.Entities
 {
 
-    internal class Resource
+    internal class User
     {
 
         public Guid Id { get; set; }
 
+        public string Username { get; set; }
+        public string Password { get; set; }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public Guid? UserId { get; set; }
-        public User User { get; set; }
-
         public bool IsDeleted { get; set; }
-
+    
     }
 
 }

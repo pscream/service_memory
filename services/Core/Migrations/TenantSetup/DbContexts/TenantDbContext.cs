@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-using Core.Migrations.TenantSetup.Entities;
+using Core.Migrations.TenantSetup.Entities.Tickets;
 using Core.Migrations.TenantSetup.DbContexts.Configs;
+using Core.Migrations.TenantSetup.DbContexts.Configs.Tickets;
 
 namespace Core.Migrations.TenantSetup.DbContexts
 {
@@ -9,9 +10,9 @@ namespace Core.Migrations.TenantSetup.DbContexts
     internal class TenantDbContext : DbContext
     {
 
-        public DbSet<Resource> Resources { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
-        public TenantDbContext(DbContextOptions<TenantDbContext> options) 
+        public TenantDbContext(DbContextOptions<TenantDbContext> options)
             : base(options)
         {
         }
@@ -19,7 +20,15 @@ namespace Core.Migrations.TenantSetup.DbContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new ResourceConfiguration());
+
+            #region Tickets
+
+            modelBuilder.ApplyConfiguration(new TicketConfiguration());
+            modelBuilder.ApplyConfiguration(new TicketStatusConfiguration());
+
+            #endregion
 
         }
 

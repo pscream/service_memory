@@ -100,7 +100,14 @@ using (var scope = host.Services.CreateScope())
         }
     }
 }
-``` 
+```
+In order to simulate the workload, the 'Ticket' table is created. The table is populated with 100 records. To distinguish data from different tenants the ticket code is prefixed with the code of tenant: 'Deep Blue Tenant' as 'DB-' -> 'DB-00000001', 'Storm Shark Tenant' as 'SS-' -> 'SS-00000001'.
+```csharp
+var prefix = words.Length > 1 ? $"{words[0][0]}{words[1][0]}" : $"{words[0][0]}";
+...
+foreach (var ticket in tickets)
+    ticket.Code = $"{prefix}-{ticket.Code}";
+```
 
 ### Cross-Origin Resource Sharing (CORS) policy in the Web APIs
 Generally, the mechanism is the following: 
@@ -182,7 +189,7 @@ In a cluster (production) environment, the origin is inferred from the real doma
 
 ### Debug in Aspire from VS Code
 #### Option 1
-- Install Aspire VS extension to add Aspire CLI;
+- Install Aspire VS Code extension to add Aspire CLI;
 - Go to 'Run & Debug' section, select 'Aspire: Launch AppHost', and click 'Run'
 - It will hit breakpoints when resources are started by Aspire
 
