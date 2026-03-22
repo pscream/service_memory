@@ -1,6 +1,4 @@
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
-
 
 using Core.Api.TenantSwitch.DbContexts;
 using Core.Api.TenantSwitch.Services;
@@ -16,10 +14,14 @@ namespace Core.Api.TenantSwitch
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.AddServiceDefaults();
+
             // Add services to the container.
             builder.Services.AddControllers();
-            builder.Services.AddHealthChecks()
-                .AddCheck("self", () => HealthCheckResult.Healthy(), ["live"]);
+
+            // No need to add health checks here because AddServiceDefaults() already adds a default liveness check
+            // builder.Services.AddHealthChecks()
+            //     .AddCheck("self", () => HealthCheckResult.Healthy(), ["live"]);
 
             // CORS setup
             builder.Services.AddCors(builder.Environment.IsDevelopment());
@@ -51,12 +53,14 @@ namespace Core.Api.TenantSwitch
             using var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-
             app.UseCors();
 
             app.UseAuthorization();
             app.MapControllers();
-            app.MapHealthChecks("/health");
+
+            // No need for a separate health check endpoint because MapDefaultEndpoints() from ServiceDefaults already adds a default liveness check
+            //app.MapHealthChecks("/health");
+            app.MapDefaultEndpoints();
             app.Run();
         }
 

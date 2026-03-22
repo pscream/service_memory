@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Global\Global.csproj" />
+    <ProjectReference Include="..\..\Hosts\ServiceDefaults\ServiceDefaults.csproj" />
   </ItemGroup>
 
 </Project>
