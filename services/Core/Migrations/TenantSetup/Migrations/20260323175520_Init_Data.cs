@@ -64,7 +64,7 @@ namespace TenantSetup.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tickets",
+                name: "Ticket",
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -80,24 +80,24 @@ namespace TenantSetup.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tickets", x => x.ID);
+                    table.PrimaryKey("PK_Ticket", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Tickets_Resource_AssignedToID",
+                        name: "FK_Ticket_Resource_AssignedToID",
                         column: x => x.AssignedToID,
                         principalTable: "Resource",
                         principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_Tickets_TicketStatus_StatusID",
+                        name: "FK_Ticket_TicketStatus_StatusID",
                         column: x => x.StatusID,
                         principalTable: "TicketStatus",
                         principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_Tickets_User_CreatedByID",
+                        name: "FK_Ticket_User_CreatedByID",
                         column: x => x.CreatedByID,
                         principalTable: "User",
                         principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_Tickets_User_UpdatedByID",
+                        name: "FK_Ticket_User_UpdatedByID",
                         column: x => x.UpdatedByID,
                         principalTable: "User",
                         principalColumn: "ID");
@@ -155,23 +155,23 @@ namespace TenantSetup.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_AssignedToID",
-                table: "Tickets",
+                name: "IX_Ticket_AssignedToID",
+                table: "Ticket",
                 column: "AssignedToID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_CreatedByID",
-                table: "Tickets",
+                name: "IX_Ticket_CreatedByID",
+                table: "Ticket",
                 column: "CreatedByID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_StatusID",
-                table: "Tickets",
+                name: "IX_Ticket_StatusID",
+                table: "Ticket",
                 column: "StatusID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_UpdatedByID",
-                table: "Tickets",
+                name: "IX_Ticket_UpdatedByID",
+                table: "Ticket",
                 column: "UpdatedByID");
         }
 
@@ -179,7 +179,7 @@ namespace TenantSetup.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Tickets");
+                name: "Ticket");
 
             migrationBuilder.DropTable(
                 name: "Resource");

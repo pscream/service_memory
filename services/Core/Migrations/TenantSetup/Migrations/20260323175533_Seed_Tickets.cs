@@ -43,7 +43,7 @@ namespace TenantSetup.Migrations
                 var description = $"Ticket '{code}'";
 
                 migrationBuilder.InsertData(
-                    table: "Tickets",
+                    table: "Ticket",
                     columns: new[] { "ID", "Code", "Description", "AssignedToID", "StatusID", "CreatedDate", "CreatedByID", "IsDeleted" },
                     values: new object[]
                     {
@@ -63,7 +63,7 @@ namespace TenantSetup.Migrations
             migrationBuilder.Sql(@"
                 UPDATE t
                 SET t.Description = CONCAT('Ticket ''', t.Code, ''', assigned to ', u.LastName, ', ', u.FirstName)
-                FROM Tickets t
+                FROM Ticket t
                 INNER JOIN [User] u ON t.AssignedToID = u.ID
                 WHERE t.AssignedToID IS NOT NULL;
             ");

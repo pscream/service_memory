@@ -18,11 +18,15 @@ namespace Core.Api.TenantSwitch.DbContexts.Configs
 
             builder.Property(x => x.Id).HasColumnName("ID");
 
-            builder.Property(x => x.FirstName).HasColumnName("FirstName").IsRequired(true);
+            builder.Property(x => x.FirstName).HasColumnName("FirstName")
+                    .IsRequired(true);
 
-            builder.Property(x => x.LastName).HasColumnName("LastName").IsRequired(true);
+            builder.Property(x => x.LastName).HasColumnName("LastName")
+                    .IsRequired(true);
 
-            builder.Property(x => x.IsDeleted).HasColumnName("IsDeleted").HasColumnType("bit").HasDefaultValue(false);
+            builder.Property(x => x.IsDeleted).HasColumnName("IsDeleted")
+                    .HasColumnType("bit")
+                    .HasDefaultValue(false);
 
         }
 

@@ -4,6 +4,7 @@
         "ASPNETCORE",
         "coreapi",
         "frontends",
+        "Mapster",
         "nvarchar",
         "servicedefaults",
         "slnx",

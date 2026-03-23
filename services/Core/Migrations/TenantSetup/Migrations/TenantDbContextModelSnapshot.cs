@@ -190,7 +190,7 @@ namespace TenantSetup.Migrations
 
                     b.HasIndex("UpdatedById");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Ticket", (string)null);
                 });
 
             modelBuilder.Entity("Core.Migrations.TenantSetup.Entities.Tickets.TicketStatus", b =>

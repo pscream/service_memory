@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 
+using Core.Api.TenantSwitch.Models.Mappings;
 using Core.Api.TenantSwitch.DbContexts;
+using Core.Api.TenantSwitch.Repos.Interfaces;
+using Core.Api.TenantSwitch.Repos.Tickets;
 using Core.Api.TenantSwitch.Services;
 using Core.Api.TenantSwitch.Services.Interfaces;
 
@@ -45,10 +48,14 @@ namespace Core.Api.TenantSwitch
 
             builder.Services.AddTenantDbContext();
 
+            builder.Services.AddScoped<ITicketRepo, TicketRepo>();
+
             builder.Services.AddSingleton<ITenantResolver, TenantResolver>();
 
             // Add HttpContextAccessor is always Singleton
             builder.Services.AddHttpContextAccessor();
+
+            builder.RegisterMapsterConfigs();
 
             using var app = builder.Build();
 

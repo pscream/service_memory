@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace TenantSetup.Migrations
 {
     [DbContext(typeof(TenantDbContext))]
-    [Migration("20260322100248_Init_Data")]
+    [Migration("20260323175520_Init_Data")]
     partial class Init_Data
     {
         /// <inheritdoc />
@@ -193,7 +193,7 @@ namespace TenantSetup.Migrations
 
                     b.HasIndex("UpdatedById");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Ticket", (string)null);
                 });
 
             modelBuilder.Entity("Core.Migrations.TenantSetup.Entities.Tickets.TicketStatus", b =>
